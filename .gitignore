@@ -1,0 +1,6 @@
+main.js*
+
+data/*.html
+
+node_modules
+bower_components
