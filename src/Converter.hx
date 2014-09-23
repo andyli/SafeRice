@@ -39,7 +39,7 @@ class Converter {
 								trace(region);
 							}
 						} else if (e.hasClass("c")) {
-							if (e.hasClass("x0")) {
+							if (["x0"].exists(e.hasClass)) {
 								var i = e.text().parseInt();
 								if (i > 0) {
 									// trace(i);
@@ -47,11 +47,11 @@ class Converter {
 								} else {
 									row = null;
 								}
-							} else if (["x8", "xe"].exists(e.hasClass)) {
+							} else if (["w4", "w8"].exists(e.hasClass)) {
 								if (row != null) {
 									row[1] = csv_escape(spaces.replace(e.text().trim(), " "));
 								}
-							} else if (["xa", "x5"].exists(e.hasClass)) {
+							} else if (["w5"].exists(e.hasClass)) {
 								if (row != null) {
 									row[2] = csv_escape(spaces.replace(e.text().trim(), " "));
 									rows.push(row.join(","));
