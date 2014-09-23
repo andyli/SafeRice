@@ -1,0 +1,14 @@
+-js chrome/js/ContentScript.js
+-main ContentScript
+-cp src
+-lib jQueryExtern
+-lib chrome-extension
+-lib promhx
+-cmd cp bower_components/jquery/dist/jquery.min.js chrome/js/
+-cmd cp bower_components/jquery-csv/src/jquery.csv.js chrome/js/
+-cmd cp bower_components/fuse/src/fuse.min.js chrome/js/
+-cmd cp data/*.csv chrome/data/
+-dce full
+-debug
+-D source-map-content
+--macro jQuery.haxe.Config.addPlugin('JQueryCSV')

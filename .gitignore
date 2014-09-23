@@ -1,5 +1,7 @@
-Converter.js*
+chrome/data
+chrome/js
 
+Converter.js*
 data/*.html
 
 node_modules
