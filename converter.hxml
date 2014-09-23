@@ -1,0 +1,8 @@
+-js Converter.js
+-main Converter
+-cp src
+-lib jQueryExtern
+-lib phantomjs
+-cmd phantomjs Converter.js
+-dce full
+# -debug

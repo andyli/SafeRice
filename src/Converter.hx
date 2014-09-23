@@ -5,7 +5,7 @@ using StringTools;
 using Lambda;
 using Std;
 
-class Main {
+class Converter {
 	static function csv_escape(v:String):String {
 		return if (["\n", "\r", "\"", ","].exists(function(_) return v.indexOf(_) >= 0)) {
 			'"' + v.replace('"', '""') + '"';

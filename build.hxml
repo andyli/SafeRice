@@ -1,8 +1,1 @@
--js main.js
--main Main
--cp src
--lib jQueryExtern
--lib phantomjs
--cmd phantomjs main.js
--dce full
--debug
+converter.hxml
