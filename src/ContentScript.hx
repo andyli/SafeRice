@@ -26,6 +26,15 @@ class ContentScript {
 		return params;
 	}
 
+	static function normalizeName(name:String):String {
+		name = ~/\(.*\)/g.replace(name, "");
+		var nonEng = ~/[^\x00-\x7F]+/;
+		if (nonEng.match(name)) {
+			name = nonEng.matched(0);
+		}
+		return name.trim();
+	}
+
 	static function main():Void {
 		switch (document.location) {
 			case {
@@ -64,7 +73,12 @@ class ContentScript {
 				Extension.getURL("data/Traders_who_imported_distributed_the_lard_produced_by_Chang_Guann.csv"),
 				null,
 				function(data, status, jqXHR) {
-					list.resolve(JQuery._static.csv.toObjects(data));
+					var _list = JQuery._static.csv.toObjects(data);
+					for (item in _list) {
+						item.name = normalizeName(item.name);
+					}
+					trace(_list);
+					list.resolve(_list);
 				}
 			);
 			list.then(function(data){
@@ -84,7 +98,7 @@ class ContentScript {
 						threshold: 0.6,
 						maxPatternLength: Std.int(data_name_max * 1.2)
 					});
-					fuse_name.search(title);
+					fuse_name.search(normalizeName(title));
 				}
 				trace(name_results);
 				
@@ -101,18 +115,22 @@ class ContentScript {
 
 				var matched = [];
 				for (name_r in name_results) {
-					for (addr_r in address_results) {
-						if (addr_r.item == name_r.item) {
-							matched.push(name_r.item);
-							break;
+					if (name_r.score < 0.1) {
+						matched.push(name_r.item);
+					} else {
+						for (addr_r in address_results) {
+							if (addr_r.item == name_r.item) {
+								matched.push(name_r.item);
+								break;
+							}
 						}
 					}
 				}
-				if (matched.length == 0) {
-					for (addr_r in address_results) {
-						matched.push(addr_r.item);
-					}
-				}
+				// if (matched.length == 0) {
+				// 	for (addr_r in address_results) {
+				// 		matched.push(addr_r.item);
+				// 	}
+				// }
 
 				var matchedStr = [for (m in matched) '<option>${m.name} - ${m.address}</option>'].join("");
 				var result = matched.length == 0 ? 
