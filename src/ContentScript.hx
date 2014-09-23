@@ -81,42 +81,43 @@ class ContentScript {
 					var fuse_name = new Fuse(data, {
 						keys: ["name"],
 						includeScore: true,
-						threshold: 0.2,
+						threshold: 0.6,
 						maxPatternLength: Std.int(data_name_max * 1.2)
 					});
 					fuse_name.search(title);
 				}
+				trace(name_results);
 				
 				var address_results = {
 					var fuse_address = new Fuse(data, {
 						keys: ["address"],
 						includeScore: true,
-						threshold: 0.4,
+						threshold: 0.6,
 						maxPatternLength: Std.int(data_address_max * 1.2)
 					});
 					fuse_address.search(loc);
 				}
+				trace(address_results);
 
-				var matched = null;
+				var matched = [];
 				for (name_r in name_results) {
-					var addr_score = 1;
 					for (addr_r in address_results) {
 						if (addr_r.item == name_r.item) {
-							addr_score = addr_r.score;
+							matched.push(name_r.item);
 							break;
 						}
 					}
-					if (addr_score < 1) {
-						trace(name_r.item);
-						trace(name_r.score);
-						trace(addr_score);
-						matched = name_r.item;
-						break;
+				}
+				if (matched.length == 0) {
+					for (addr_r in address_results) {
+						matched.push(addr_r.item);
 					}
 				}
-				var result = matched == null ? 
+
+				var matchedStr = [for (m in matched) '<option>${m.name} - ${m.address}</option>'].join("");
+				var result = matched.length == 0 ? 
 					'<div style="color: green;">沒有找到</div>' : 
-					'<div style="color: red;">${matched.name}<br/>(${matched.address})</div>';
+					'<div style="color: red;"><select style="width: 100%;color: red;margin: 0;padding: 0;">${matchedStr}</select></div>';
 				new JQuery("#SafeRice_result").html(result);
 			});
 		});
