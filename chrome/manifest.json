@@ -2,7 +2,8 @@
 	"manifest_version": 2,
 	"name": "SafeRice",
 	"version": "0.0.4",
-	"description": "在OpenRice的餐廳頁面顯示相關強冠豬油商戶的搜尋結果。",
+	"default_locale": "zh_TW",
+	"description": "__MSG_application_description__",
 	"icons": {
 		"16": "icon16.png",
 		"48": "icon48.png",

@@ -1,6 +1,6 @@
 # SafeRice
 
-A chrome extension that modify the restaurant pages at [OpenRice](http://www.openrice.com/) to display search result of relevant user of Chang Guann lard products.
+A chrome extension that modify the restaurant pages at [OpenRice](http://www.openrice.com/) to display search result of relevant users of Chang Guann lard product.
 
 The data is extracted from the pdf issued by Hong Kong's [Centre for Food Safety](http://www.cfs.gov.hk/) on 2014-09-23.
 
