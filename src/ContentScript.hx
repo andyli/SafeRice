@@ -6,6 +6,11 @@ import promhx.Deferred;
 using StringTools;
 using Reflect;
 
+enum Language {
+	zh;
+	en;
+}
+
 extern class Fuse {
 	public function new(data:Dynamic, options:Dynamic):Void;
 	public function search(pattern:String):Array<Dynamic>;
@@ -41,13 +46,18 @@ class ContentScript {
 				pathname: "/restaurant/sr2.htm",
 				search: getQueryParams(_) => param
 			}:
-				restaurantPage(param.shopid);
+				restaurantPage(param.shopid, zh);
+			case {
+				pathname: "/english/restaurant/sr2.htm",
+				search: getQueryParams(_) => param
+			}:
+				restaurantPage(param.shopid, en);
 			case _:
 		}
 		
 	}
 
-	static function restaurantPage(shopid:String):Void {
+	static function restaurantPage(shopid:String, lang:Language):Void {
 		new JQuery(function():Void{
 			var title = new JQuery("#sr2_title").text().trim();
 			var loc = new JQuery(".map_btn")
@@ -57,15 +67,29 @@ class ContentScript {
 			//trace(title + " " + loc);
 
 			new JQuery(".info_basic_first .col").prepend(
-				'<div class="sprite-global-icon FL"></div>
-				<div class="ML10 FL" style="width: 255px;">
-					<div>
-						相關強冠豬油商戶:<br>
-						<div id="SafeRice_result">搜尋中...</div>
-					</div>
-				</div>
-				<div class="clearfix"></div>
-				<div class="border_bottom_dot MT10 MB10"></div>'
+				switch (lang) {
+					case zh:
+						'<div class="sprite-global-icon FL"></div>
+						<div class="ML10 FL" style="width: 255px;">
+							<div>
+								相關強冠豬油商戶:<br>
+								<div id="SafeRice_result">搜尋中...</div>
+							</div>
+						</div>
+						<div class="clearfix"></div>
+						<div class="border_bottom_dot MT10 MB10"></div>';
+					case en:
+						'<div class="sprite-global-icon FL"></div>
+						<div class="ML10 FL" style="width: 255px;">
+							<div>
+								Chang Guann lard product user(s):<br>
+								<div id="SafeRice_result">searching...</div>
+							</div>
+						</div>
+						<div class="clearfix"></div>
+						<div class="border_bottom_dot MT10 MB10"></div>';
+				}
+				
 			);
 
 			var list = new Deferred<Array<Dynamic>>();
@@ -75,30 +99,22 @@ class ContentScript {
 				function(data, status, jqXHR) {
 					var _list = JQuery._static.csv.toObjects(data);
 					for (item in _list) {
-						item.name = normalizeName(item.name);
+						item.normalizedName = normalizeName(item.name);
 					}
 					trace(_list);
 					list.resolve(_list);
 				}
 			);
 			list.then(function(data){
-				var data_name_max = 0;
-				var data_address_max = 0;
-				for (obj in data) {
-					if (obj.name.length > data_name_max)
-						data_name_max = obj.name.length;
-					if (obj.address.length > data_address_max)
-						data_address_max = obj.address.length;
-				}
-				
 				var name_results = {
+					var title = normalizeName(title);
 					var fuse_name = new Fuse(data, {
-						keys: ["name"],
+						keys: ["normalizedName"],
 						includeScore: true,
 						threshold: 0.6,
-						maxPatternLength: Std.int(data_name_max * 1.2)
+						maxPatternLength: title.length
 					});
-					fuse_name.search(normalizeName(title));
+					fuse_name.search(title);
 				}
 				trace(name_results);
 				
@@ -107,7 +123,7 @@ class ContentScript {
 						keys: ["address"],
 						includeScore: true,
 						threshold: 0.6,
-						maxPatternLength: Std.int(data_address_max * 1.2)
+						maxPatternLength: loc.length
 					});
 					fuse_address.search(loc);
 				}
@@ -134,7 +150,12 @@ class ContentScript {
 
 				var matchedStr = [for (m in matched) '<option>${m.name} - ${m.address}</option>'].join("");
 				var result = matched.length == 0 ? 
-					'<div style="color: green;">沒有找到</div>' : 
+					switch (lang) {
+						case zh:
+							'<div style="color: green;">沒有找到</div>';
+						case en:
+							'<div style="color: green;">not found</div>';
+					} : 
 					'<div style="color: red;"><select style="width: 100%;color: red;margin: 0;padding: 0;">${matchedStr}</select></div>';
 				new JQuery("#SafeRice_result").html(result);
 			});
