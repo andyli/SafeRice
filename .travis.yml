@@ -6,8 +6,8 @@ install:
   - brew install phantomjs
   - brew install haxe
   - mkdir ~/haxelib && haxelib setup ~/haxelib
-  - haxelib install converter.hxml
-  - haxelib install chrome.hxml
+  - haxelib install converter.hxml <<< "y"
+  - haxelib install chrome.hxml <<< "y"
   - bower install
 
 script:
