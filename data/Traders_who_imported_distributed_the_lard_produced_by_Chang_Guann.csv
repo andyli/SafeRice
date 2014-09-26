@@ -57,7 +57,7 @@ Hong Kong Island,美味屋,香港筲箕灣道 178 號地下
 Hong Kong Island,新記,柴灣豐業街 5 號華盛中心 9 樓 C 及 D 室
 Hong Kong Island,新寧,銅鑼灣波斯富街 99 號利舞臺廣場 16 樓 B 舖
 Hong Kong Island,太子-太古城,太古太古城道 24 號太古城第五期夏宮閣地下
-Hong Kong Island,美心食品有限公司(MX),香港鰂魚涌英皇道１０６３號２８樓
+Hong Kong Island,美心食品有限公司,香港鰂魚涌英皇道１０６３號２８樓
 Hong Kong Island,樂活,"上環水坑口街 9 號,寶泰大廈地下 C 鋪"
 Hong Kong Island,樂活,北角英皇道 278 號地下 6B 鋪
 Hong Kong Island,惠蘿餅屋,筲箕灣愛禮街 2 號愛蝶灣地下 27 號鋪
@@ -118,6 +118,24 @@ Hong Kong Island,金鳳,春園街 41 號地下
 Hong Kong Island,百事吉麵包,灣仔石水渠街 15-17 號
 Hong Kong Island,百事吉麵包,灣仔道 67 號地下
 Hong Kong Island,泰昌行,北角馬寶道馬寶閣 15 號 2 樓 C 室
+Hong Kong Island,B B Ramen,大坑京街 3 號地下
+Hong Kong Island,金田家,銅鑼灣 登龍街 34 號 地下
+Hong Kong Island,長浜 No.1,上環九如坊 14 號
+Hong Kong Island,一幸舍,銅鑼灣登龍街 39 號地下
+Hong Kong Island,三德商事有限公司-健康拉麵,"中環威靈頓街 97 號威利大廈地下 B,C,D 舖"
+Hong Kong Island,富山麵家,銅鑼灣希雲街 7 號地下
+Hong Kong Island,佳朗食品有限公司,柴灣 嘉業街 18 號 明報工業中心 A 座 2 樓 7~9 室
+Hong Kong Island,八雲札幌拉麵,筲箕灣筲箕灣東大街 28-40A 東興大廈地下 5 號舖
+Hong Kong Island,VEGI(銅鑼灣),香港銅鑼灣駱克道 487-489 號 L'HART 3/F
+Hong Kong Island,YAWN LTD.,香港銅鑼灣希雲街 9 號地下
+Hong Kong Island,心思廚房(楊成紀念長期護理院),黃竹坑黃竹坑徑 2 號東華三院黃竹坑綜合服務大樓
+Hong Kong Island,石澳俱樂部,香港石澳石澳道 5 號
+Hong Kong Island,均衡國際有限公司,香港中環雲咸街 79 號地下及一樓
+Hong Kong Island,俺的沾麵,香港北角蜆殼街 6-16 號寶榮大廈地下 D1 號舖
+Hong Kong Island,敘滿庭(北角),香港北角錦屏街 7-9 號地舖
+Hong Kong Island,匯同有限公司 (CHEZ MOI),香港中環亞畢諾道 10-12 號亞畢諾大廈地下
+Hong Kong Island,新斗記貿易有限公司(銅鑼灣-點心),香港銅鑼灣霎東街 33 號快捷假日酒店 2 樓
+Hong Kong Island,蕃薯苗小館,香港北角北角道 17 號地下
 Kowloon,香港凱悅酒店 (尖沙咀),"18 HANOI RD, TST KLN"
 Kowloon,智豐集團有限公司 經營 車仔麵包西餅,"G/F 260 KI LUNG ST, SHAM SHUI PO, KLN"
 Kowloon,金屋西餅麵飽公司,"FLAT/RM 111 G/F KAM SHEK HSE ,PING SHEK ESTATE, KOWLOON"
@@ -340,6 +358,32 @@ Kowloon,紅車厘,黃大仙雙鳳街 14 號地下
 Kowloon,Maia's Box Bakery,新蒲崗景福街 104 號新時代中心 12 樓 1209 室
 Kowloon,包羅萬有,廣東道 1031 號 A 舖地下
 Kowloon,凱施餅店,官塘偉業街 155 號地舖
+Kowloon,毘沙門天 Zero,九龍 彌敦道 恆豐中心地庫 3 層 4-12 及 26-31 號舖(RamenChampion)
+Kowloon,豚王拉麵有限公司 -觀塘工場,觀塘海濱道 139-141 號 海濱中心 2 樓 1 號室
+Kowloon,小林 扎幌拉麵,大角咀博文街 11 號富貴大廈西座地下 16 號鋪
+Kowloon,紅葉居,大角咀角祥街 2J 地下
+Kowloon,怒天珍,九龍 彌敦道 恆豐中心地庫 3 層 4-12 及 26-31 號舖(RamenChampion)
+Kowloon,元札幌拉麵有限公司,荔枝角深盛路 9 號宇晴軒商場 2 樓 7-8 號舖
+Kowloon,君匯餐飲管理有限公司-伊豆館,旺角廣華街 1 號仁安大廈地下 1 號舖
+Kowloon,札幌拉麵味噌 No.1-尖沙咀,尖沙咀加連威老道嘉蘭圍 22 號地下
+Kowloon,拉麵天皇,九龍紅磡黃埔新村德民街 17-27 號地下 5B 舖
+Kowloon,隱家拉麵,九龍深水埗欽州街 37 號西九龍中心 7 樓 7083 號舖
+Kowloon,混亂拉麵,九龍深水埗欽州街 54 號平安大廈地舖
+Kowloon,FRIENDMILY,觀塘巧明街 109 號榮昌工業大廈 5 樓 A 座
+Kowloon,龍堡飲食(官塘),九龍官塘偉業街 139-141 號兆發工業大廈 9 樓 05 室
+Kowloon,君好海鮮酒家,九龍深水埗麗閣邨麗微樓 2 樓
+Kowloon,安妮麵包西餅,九龍大角咀埃華街 75 號地下
+Kowloon,金銀島飽店,九龍荔枝角道 314 號 B2 舖
+Kowloon,金源餅店(官塘),九龍官塘樂華北邨商場 312 號舖
+Kowloon,雄輝餅店(旺角),旺角廣東道山東街 1005 號
+Kowloon,金宏亞洲有限公司 ( 金滿庭 (鑽石山)),九龍鑽石山龍蟠街 3 號荷里活廣場 3 樓 312 號舖
+Kowloon,頂好海鮮酒家有限公司,九龍尖沙咀彌敦道 92-94 號地庫
+Kowloon,高信管理有限公司 (金滿庭 (德福廣場)),九龍九龍灣偉業街 33 號德福廣場 2 期 6 樓 603 室
+Kowloon,君盈麵包,九龍油麻地上海街 181 號地下
+Kowloon,永興食品公司,大角咀洋松街建聯工業大廈 10 樓
+Kowloon,新運通海鮮火鍋大牌檔,荔枝角道近北河街口
+Kowloon,國賓美食,九龍佐敦長樂街 27 號地下 E 舗
+Kowloon,翠林園茶餐廳,九龍官塘翠屏道屏北邨商場地下 4 號
 New Territories,合群社有限公司 經營 金運海鮮酒家,"SHOP NOS 4-8 1/F TSING YI SQUARE, TSING YI GDN 7-19 TSING LUK ST, TSING YI NT"
 New Territories,TAI TAI PIE PIE'S LTD 經營 TAI TAI PIE PIES,"FLAT 11-12 BLK B 13/F VERISTRONG IND CTR, 34-36 AU PUI WAN ST, FOTAN NT"
 New Territories,聖安娜餅店 - 厚豐７樓,"7/F HOU FENG IND BLDG, 1-5 WING KIN RD, KWAI CHUNG NT"
@@ -580,3 +624,28 @@ New Territories,豆豆飽,馬鞍山富安商場 6-7 號
 New Territories,麥稻田,粉嶺雍盛苑雍盛商場地下 17 號舖
 New Territories,龍品,橫龍街 17-33 號明華工業大廈 6 樓 A-B 座
 New Territories,超記麵包,荃灣柴灣角街榮興工業大廈 83-93 號 3 樓 3 室
+New Territories,麻布茶房工場,荃灣橫窩仔街 16-26 號順力工業大廈 2 樓 4B&C 室
+New Territories,山輝有限公司- 一人前拉麵,元朗建業街 74 號 7 號鋪
+New Territories,元札幌拉麵有限公司-荃灣,荃灣荃華街 3 號悅來坊地庫 B121 號舖
+New Territories,煉瓦亭,將軍澳貿業路 8 號新都城中心三期地下 3 號舖
+New Territories,扎幌拉麵味噌 No.1 -荃灣,荃灣楊屋道 18 號荃新天地二期 UG59 號舖
+New Territories,札幌拉麵味噌 No.1- 將軍澳,將軍澳唐德街 9 號將軍澳中心地庫 B1 層 B15 舖
+New Territories,戶井有限公司,荃灣橫窩仔街 16-26 號順力工業大廈 2 樓 4B&C 室
+New Territories,紅蜻蜓餐廳(葵涌),新界葵涌大連排道九龍貿易中心地下 1 舖
+New Territories,宜昇美食,新界大埔大元村大元街市地下 410 號舖
+New Territories,盛逸酒店,新界青衣路 1 號
+New Territories,合豐行,葵涌大圓街瑞榮工業大廈 14 樓 C 室
+New Territories,幸時餅店,元朗鳳香街鴻運中心 60 號地下
+New Territories,櫻島麵包餅店(大窩口),大窩口大廈街 3 號地下
+New Territories,民興麵包,荃灣象山村商場 20 號
+New Territories,名家餅店,青衣長青邨商場 6 號舖
+New Territories,信利高有限公司(紀香麵包),沙田第一城銀城商場地下 11-12 號舖
+New Territories,豬仔包,元朗錦繡花園市中心 A 座地下 8-10 號及 12 號地舖
+New Territories,銀龍餅店,葵涌禾塘咀街 129B 號地下
+New Territories,耀興麵包西餅,石籬中心第二期 2 字樓 201 號
+New Territories,HEMINGWAY’S BY THE B,香港大嶼山愉景灣愉景灣廣場 A 座地下 G09 號舖
+New Territories,香港亞思夢餐飲有限公司 (山頭火),新界荃灣大霸街 4-30 號荃灣廣場 L3 層 315 號舖
+New Territories,新菜園餐廳,香港長洲建新里 1-2 號地下
+New Territories,暉裕企業有限公司 (金滿庭 (新港城廣場)),新界馬鞍山鞍源街新港城廣場 2105 號舖
+New Territories,盛潤國際(香港)有限公司 (金滿庭 (將軍澳)),新界將軍澳唐德街 3 號智選假日酒店 7 樓 702 號舖
+New Territories,鼎暉美食城,青衣涌尾村 94 號地下

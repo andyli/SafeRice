@@ -1,4 +1,5 @@
 import jQuery.*;
+import js.html.*;
 import js.phantomjs.*;
 import js.Lib;
 using StringTools;
@@ -23,41 +24,57 @@ class Converter {
 			];
 			var rows = [header];
 			var row = null;
+			var rowY = null;
 			var region = "";
 			var spaces = ~/\s+/g;
+			var yr = ~/^y([0-9]+)$/;
 			for (page in new JQuery("#page-container > .pf")) {
 				var page_no = new JQuery(page).data("page-no");
+				var ty = -1.0; //y coordinate of the header
 				new JQuery(page)
 					.children(".pc")
-					.children("div.t, div.c")
+					.children("div.t")
+					.each(function(i, e) {
+						var _region = regions.find(new JQuery(e).text().trim().startsWith);
+						if (_region != null) {
+							region = _region;
+							ty = new JQuery(e).offset().top;
+							trace(region);
+						}
+					});
+
+				new JQuery(page)
+					.children(".pc")
+					.children("div.c")
 					.each(function(i, e){
-						var e = new JQuery(e);
-						if (e.hasClass("t") && e.text().trim() != "") {
-							var _region = regions.find(e.text().trim().startsWith);
-							if (_region != null) {
-								region = _region;
-								trace(region);
-							}
-						} else if (e.hasClass("c")) {
-							if (["x0"].exists(e.hasClass)) {
-								var i = e.text().parseInt();
+						var je = new JQuery(e);
+						var cy = je.offset().top;
+						if (cy < ty) {
+							throw 'Change of region in the middle of page?';
+						}
+
+						switch (row) {
+							case null:
+								var i = je.text().parseInt();
 								if (i > 0) {
-									// trace(i);
-									row = [region, "", ""];
-								} else {
-									row = null;
+									row = [region, null, null];
+									rowY = cy;
 								}
-							} else if (["w4", "w8"].exists(e.hasClass)) {
-								if (row != null) {
-									row[1] = csv_escape(spaces.replace(e.text().trim(), " "));
+							case [_, null, null]:
+								if (cy != rowY) {
+									throw "not in the same row?";
 								}
-							} else if (["w5"].exists(e.hasClass)) {
-								if (row != null) {
-									row[2] = csv_escape(spaces.replace(e.text().trim(), " "));
-									rows.push(row.join(","));
-									trace(row);
+								row[1] = csv_escape(spaces.replace(je.text().trim(), " "));
+							case [_, _, null]:
+								if (cy != rowY) {
+									throw "not in the same row?";
 								}
-							}
+								row[2] = csv_escape(spaces.replace(je.text().trim(), " "));
+								rows.push(row.join(","));
+								trace(row);
+								row = null;
+							case _:
+								throw "row?";
 						}
 					});
 			}
