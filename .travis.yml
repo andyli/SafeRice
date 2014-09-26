@@ -8,6 +8,7 @@ install:
   - mkdir ~/haxelib && haxelib setup ~/haxelib
   - haxelib install converter.hxml <<< "y"
   - haxelib install chrome.hxml <<< "y"
+  - sudo npm install -g bower
   - bower install
 
 script:
