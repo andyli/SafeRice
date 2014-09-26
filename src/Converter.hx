@@ -30,10 +30,10 @@ class Converter {
 			for (page in document.querySelectorAll("#page-container > .pf")) {
 				var ty = -1.0; //y coordinate of the header
 
-				for (child in cast(page,Element).children)
-				if (cast(child,Element).classList.contains("pc"))
-				for (child in cast(child,Element).children) {
-					var e = cast(child,Element);
+				for (child in (cast page:Element).children)
+				if ((cast child:Element).classList.contains("pc"))
+				for (child in (cast child:Element).children) {
+					var e = (cast child:Element);
 					if (e.classList.contains("t")) {
 						var _region = regions.find(e.textContent.trim().startsWith);
 						if (_region != null) {
@@ -45,10 +45,10 @@ class Converter {
 				}
 
 
-				for (child in cast(page,Element).children)
-				if (cast(child,Element).classList.contains("pc"))
-				for (child in cast(child,Element).children) {
-					var e = cast(child,Element);
+				for (child in (cast page:Element).children)
+				if ((cast child:Element).classList.contains("pc"))
+				for (child in (cast child:Element).children) {
+					var e = (cast child:Element);
 					if (e.classList.contains("c")) {
 						var cy = e.getBoundingClientRect().top + document.body.scrollTop;
 						if (cy < ty) {
