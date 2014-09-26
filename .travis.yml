@@ -3,7 +3,7 @@ language: objective-c
 install:
   - brew update
   - brew install pdf2htmlex
-  - travis_wait brew install phantomjs --HEAD
+  - travis_wait 120 brew install phantomjs --HEAD
   - brew install haxe
   - mkdir ~/haxelib && haxelib setup ~/haxelib
   - haxelib install converter.hxml
