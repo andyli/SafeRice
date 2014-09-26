@@ -27,7 +27,6 @@ class Converter {
 			var rowY = null;
 			var region = "";
 			var spaces = ~/\s+/g;
-			var yr = ~/^y([0-9]+)$/;
 			for (page in new JQuery("#page-container > .pf")) {
 				var page_no = new JQuery(page).data("page-no");
 				var ty = -1.0; //y coordinate of the header
