@@ -72,7 +72,9 @@ class Converter {
 									throw "not in the same row?";
 								}
 								row[2] = csv_escape(spaces.replace(e.textContent.trim(), " "));
-								rows.push(row.join(","));
+								if (row[1].indexOf("供應商澄清從沒供應豬油與有關商戶") == -1) {
+									rows.push(row.join(","));
+								}
 								trace(row);
 								row = null;
 							case _:
