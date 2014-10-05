@@ -20,11 +20,14 @@
 				"js/fuse.min.js",
 				"js/ContentScript.js"
 			],
-			"run_at" : "document_idle"
+			"run_at" : "document_start"
 		}
 	],
 	"web_accessible_resources": [
 		"js/*.map",
 		"data/*"
+	],
+	"permissions": [
+		"https://docs.google.com/spreadsheets/d/19IM5t97cSIEqbvwH4CyTrouUyEdKI-kZQsPXbe0l3r8/export?gid=0&format=csv"
 	]
 }
