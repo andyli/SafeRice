@@ -1,0 +1,31 @@
+.SafeRice_found {
+	width: 100%;
+}
+
+.SafeRice_found .name {
+	font-weight: bold;
+}
+
+.SafeRice_found .support {
+	color: green;
+}
+
+.SafeRice_found > * {
+	border-bottom: 1px dotted;
+}
+
+.opentip .SafeRice_found > * {
+	border-bottom: none;
+}
+
+.SafeRice_found > *:hover {
+	background-color: #ccc;
+}
+
+#SafeRice_result_lard .SafeRice_found > * {
+	color: red;
+}
+
+#SafeRice_result_lard .SafeRice_notfound {
+	color: green;
+}

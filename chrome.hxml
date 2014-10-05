@@ -7,8 +7,13 @@
 -cmd cp bower_components/jquery/dist/jquery.min.js chrome/js/
 -cmd cp bower_components/jquery-csv/src/jquery.csv.js chrome/js/
 -cmd cp bower_components/fuse/src/fuse.min.js chrome/js/
+-cmd cp bower_components/opentip/lib/opentip.js chrome/js/
+-cmd cp bower_components/opentip/lib/adapter-component.js chrome/js/
+-cmd cp bower_components/opentip/lib/adapter-jquery.js chrome/js/
+-cmd cp bower_components/opentip/css/opentip.css chrome/css/
 -cmd cp data/*.csv chrome/data/
 -dce full
 -debug
 -D source-map-content
 --macro jQuery.haxe.Config.addPlugin('JQueryCSV')
+--macro jQuery.haxe.Config.addPlugin('Opentip')

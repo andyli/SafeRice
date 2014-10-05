@@ -91,6 +91,7 @@ class ContentScript {
 						name: row[header.indexOf("商店名")],
 						address: row[header.indexOf("位置/地址")],
 						detail: row[header.indexOf("支持內容")],
+						support: true
 					}
 				];
 				trace(_list);
@@ -110,7 +111,7 @@ class ContentScript {
 				switch (lang) {
 					case zh:
 						'<div class="sprite-global-icon FL"></div>
-						<div class="ML10 FL" style="width: 255px;">
+						<div class="ML10 FL" style="width: 100%;">
 							<div>
 								相關使用強冠豬油的商戶:<br>
 								<div id="SafeRice_result_lard">搜尋中...</div>
@@ -119,7 +120,7 @@ class ContentScript {
 						<div class="clearfix"></div>
 						<div class="border_bottom_dot MT10 MB10"></div>
 						<div class="sprite-global-icon FL"></div>
-						<div class="ML10 FL" style="width: 255px;">
+						<div class="ML10 FL" style="width: 100%;">
 							<div>
 								相關對遮打佔領行動表態的商戶:<br>
 								<div id="SafeRice_result_umbrella">搜尋中...</div>
@@ -129,7 +130,7 @@ class ContentScript {
 						<div class="border_bottom_dot MT10 MB10"></div>';
 					case en:
 						'<div class="sprite-global-icon FL"></div>
-						<div class="ML10 FL" style="width: 255px;">
+						<div class="ML10 FL" style="width: 100%;">
 							<div>
 								Chang Guann lard product user(s):<br>
 								<div id="SafeRice_result_lard">searching...</div>
@@ -138,7 +139,7 @@ class ContentScript {
 						<div class="clearfix"></div>
 						<div class="border_bottom_dot MT10 MB10"></div>
 						<div class="sprite-global-icon FL"></div>
-						<div class="ML10 FL" style="width: 255px;">
+						<div class="ML10 FL" style="width: 100%;">
 							<div>
 								Declaring view on Umbrella Movement:<br>
 								<div id="SafeRice_result_umbrella">searching...</div>
@@ -188,16 +189,32 @@ class ContentScript {
 					}
 				}
 
-				var matchedStr = [for (m in matched) '<option>${m.name} - ${m.address}</option>'].join("");
+				var matchedStr = [for (m in matched) '<span>${m.name}</span>'].join(", ");
 				var result = matched.length == 0 ? 
 					switch (lang) {
 						case zh:
-							'<div style="color: green;">沒有找到</div>';
+							'<div class="SafeRice_notfound">沒有找到</div>';
 						case en:
-							'<div style="color: green;">not found</div>';
+							'<div class="SafeRice_notfound">not found</div>';
 					} : 
-					'<div style="color: red;"><select style="width: 100%;color: red;margin: 0;padding: 0;">${matchedStr}</select></div>';
-				new JQuery("#SafeRice_result_lard").html(result);
+					'<div class="SafeRice_found">${matchedStr}</div>';
+
+				new JQuery("#SafeRice_result_lard")
+					.html(result)
+					.find(".SafeRice_found span")
+					.each(function(i, e){
+						var m = matched[i];
+						new JQuery(e)
+							.opentip(
+								'<div class="SafeRice_found">
+									<p class="name">${m.name}<p>
+									<p class="address">${m.address}<p>
+								</div>',
+								{
+									delay:0
+								}
+							);
+					});
 			});
 
 			list_umbrella.then(function(data){
@@ -238,23 +255,39 @@ class ContentScript {
 					}
 				}
 
-				var matchedStr = [for (m in matched) '<option>${m.name} - ${m.address} - ${m.detail}</option>'].join("");
+				var matchedStr = [for (m in matched) '<span class="${m.support?"support":"against"}">${m.name}</span>'].join("");
 				var result = matched.length == 0 ? 
 					switch (lang) {
 						case zh:
-							'<div>沒有找到</div>';
+							'<div class="SafeRice_notfound">沒有找到</div>';
 						case en:
-							'<div>not found</div>';
+							'<div class="SafeRice_notfound">not found</div>';
 					} : 
-					'<div>
-						<select style="width: 100%;margin: 0;padding: 0;">${matchedStr}</select>
-						<a 
-							href="https://docs.google.com/a/onthewings.net/spreadsheets/d/19IM5t97cSIEqbvwH4CyTrouUyEdKI-kZQsPXbe0l3r8/edit#gid=0"
-							target="_blank"
-							style=""
-							>detail</a>
-					</div>';
-				new JQuery("#SafeRice_result_umbrella").html(result);
+					'<div class="SafeRice_found">${matchedStr}</div>';
+				var supportStr = switch (lang) {
+					case zh:
+						'<p class="support">支持佔領</p>';
+					case en:
+						'<p class="support">support occupy</p>';
+				}
+				new JQuery("#SafeRice_result_umbrella")
+					.html(result)
+					.find(".SafeRice_found span")
+					.each(function(i, e){
+						var m = matched[i];
+						new JQuery(e)
+							.opentip(
+								'<div class="SafeRice_found">
+									<p class="name">${m.name}<p>
+									<p class="address">${m.address}<p>
+									$supportStr
+									<p class="detail">支持內容: ${m.detail}</p>
+								</div>',
+								{
+									delay:0
+								}
+							);
+					});
 			});
 		});
 	}

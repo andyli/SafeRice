@@ -16,6 +16,7 @@
   "dependencies": {
     "jquery": "~2.1.1",
     "fuse": "~1.2.0",
-    "jquery-csv": "*"
+    "jquery-csv": "*",
+    "opentip": "~2.4.6"
   }
 }

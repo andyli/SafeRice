@@ -14,17 +14,25 @@
 			"matches" : [
 				"http://www.openrice.com/*"
 			],
+			"css" : [
+				"css/opentip.css",
+				"css/main.css"
+			],
 			"js" : [
 				"js/jquery.min.js",
 				"js/jquery.csv.js",
 				"js/fuse.min.js",
+				"js/opentip.js",
+				"js/adapter-component.js",
+				"js/adapter-jquery.js",
 				"js/ContentScript.js"
 			],
 			"run_at" : "document_start"
 		}
 	],
 	"web_accessible_resources": [
-		"js/*.map",
+		"css/*",
+		"js/*",
 		"data/*"
 	],
 	"permissions": [
