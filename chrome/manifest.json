@@ -1,7 +1,7 @@
 {
 	"manifest_version": 2,
 	"name": "SafeRice",
-	"version": "0.0.6",
+	"version": "0.0.7",
 	"default_locale": "zh_TW",
 	"description": "__MSG_application_description__",
 	"icons": {
