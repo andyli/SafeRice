@@ -15,5 +15,7 @@
 -dce full
 -debug
 -D source-map-content
+# -D analyzer
+-D js-es5
 --macro jQuery.haxe.Config.addPlugin('JQueryCSV')
 --macro jQuery.haxe.Config.addPlugin('Opentip')

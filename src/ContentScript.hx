@@ -84,11 +84,11 @@ class ContentScript {
 					for (row in data)
 					if (
 						row_i++ > 1 &&
-						row[header.indexOf("商店名")] != "" &&
+						row[header.indexOf("商店名稱")] != "" &&
 						row[header.indexOf("位置/地址")] != ""
 					)
 					{
-						name: row[header.indexOf("商店名")],
+						name: row[header.indexOf("商店名稱")],
 						address: row[header.indexOf("位置/地址")],
 						detail: row[header.indexOf("支持內容")],
 						support: true
@@ -255,7 +255,7 @@ class ContentScript {
 					}
 				}
 
-				var matchedStr = [for (m in matched) '<span class="${m.support?"support":"against"}">${m.name}</span>'].join("");
+				var matchedStr = [for (m in matched) '<span class="${m.support?"support":"against"}">${m.name}</span>'].join(", ");
 				var result = matched.length == 0 ? 
 					switch (lang) {
 						case zh:
